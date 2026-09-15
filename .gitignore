@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project datasets
+data/raw/*
+data/bronze/*
+data/silver/*
+data/gold/*
+
+# Keep data folder structure
+!data/raw/.gitkeep
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+
+#Environment variables
+.env
+
+# Logs 
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DB_Store
+Thumbs.db
