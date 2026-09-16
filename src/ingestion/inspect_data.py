@@ -9,7 +9,7 @@ print("Shape:", df.shape)
 print("\nColumns:")
 print(df.columns.tolist())
 
-print("\nFrist rows:")
+print("\nFirst rows:")
 print(df.head())
 
 print("\nData types:")
@@ -23,3 +23,22 @@ print(df['type'].value_counts())
 
 print("\nFraud distribution:")
 print(df["isFraud"].value_counts())
+
+print("\nDuplicated rows:")
+print(df.duplicated().sum())
+
+print("\nAmount statistics:")
+print(df["amount"].describe())
+
+print(("\nFraud by transaction type:"))
+print(
+    df.groupby("type")["isFraud"]
+    .agg(["count", "sum",])
+    .sort_values("sum", ascending=False)
+)
+
+print("\nFlagged fraud distribution:")
+print(df["isFlaggedFraud"].value_counts())
+
+print("\nStep range:")
+print(df["step"].min(), df["step"].max())
