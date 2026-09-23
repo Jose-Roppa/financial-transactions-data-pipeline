@@ -58,21 +58,16 @@ No cleaning or business-rule transformations are applied at this stage.
 
 The Silver layer is responsible for producing clean, validated, and enriched transaction data from the Bronze dataset.
 
-Planned Silver processing includes:
+Current Silver processing:
 
-- Validate transaction types
-- Validate required fields
-- Validate non-negative transaction amounts
-- Detect and remove fully duplicated records
-- Separate valid and rejected records
-- Create derived time attributes
-- Preserve transaction-level granularity
-- Prepare reliable data for downstream analytics
-
-Planned derived fields:
-
-- `transaction_day`
-- `transaction_hour`
+- Validates transaction types
+- Validates required fields
+- Rejects negative transaction amount
+- Separates valid and rejected records
+- Removes fully duplicated valid records
+- Derives transaction_day and transaction_hour
+- Stores valid and rejected datasets separetely in Parqut
+- Validates the persisted Silver output
 
 The Silver layer will read exclusively from the Bronze layer rather than directly from the raw CSV, preserving a clear processing lineage.
 
@@ -131,9 +126,9 @@ financial-transactions-data-pipeline/
 - [x] Bronze layer
 - [x] Parquet storage
 - [x] Bronze validation
-- [ ] Silver data quality rules
-- [ ] Silver transformations
-- [ ] Rejected-record handling
+- [x] Silver data quality rules
+- [x] Silver transformations
+- [x] Rejected-record handling
 - [ ] Gold analytical datasets
 - [ ] Spark SQL analytics
 - [ ] Dimensional modeling
